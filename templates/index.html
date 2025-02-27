@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iElder - Compassionate Elder Care Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">i<span>Elder</span></div>
+            <button class="nav-toggle">☰</button>
+            <nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}" {% if active_section is not defined %}class="active"{% endif %}><i class="fas fa-home"></i> Home</a></li>
+        <li>
+            <a href="{{ url_for('about') }}" {% if active_section == 'about' %}class="active"{% endif %}><i class="fas fa-chart-bar"></i> About Us ▾</a>
+            <ul>
+                <li><a href="{{ url_for('about') }}#statistics">Statistics</a></li>
+                <li><a href="{{ url_for('about') }}#impact">Our Impact</a></li>
+                <li><a href="{{ url_for('about') }}#mission">Our Mission</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="{{ url_for('services') }}" {% if active_section == 'services' %}class="active"{% endif %}><i class="fas fa-hands-helping"></i> Services ▾</a>
+            <ul>
+                <li><a href="{{ url_for('services') }}#chat-assistance">AI Assistant</a></li>
+                <li><a href="{{ url_for('services') }}#nearby-services">Nearby Services</a></li>
+                <li><a href="{{ url_for('services') }}#resources">Resources</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ url_for('chat') }}"><i class="fas fa-robot"></i> Chat Assistant</a></li>
+        <li><a href="{{ url_for('contact') }}" {% if active_section == 'contact' %}class="active"{% endif %}><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+</nav>
+        </div>
+    </header>
+
+    <section id="home" class="{% if active_section is not defined %}active-section{% endif %}">
+        <div class="section-content">
+            <h1>Welcome to iElder</h1>
+            <p class="tagline">Compassionate care for our senior community</p>
+            <div class="mission-statement">
+                <h2><i class="fas fa-heart"></i> Our Mission</h2>
+                <p>At iElder, we are dedicated to enhancing the quality of life for seniors through innovative technology and compassionate care. We believe that every elder deserves dignity, respect, and access to services that promote independence and well-being.</p>
+
+                <div class="mission-values">
+                    <div class="value-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Compassion</h3>
+                        <p>We approach every interaction with empathy and understanding.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Community</h3>
+                        <p>We foster connections that reduce isolation and build support networks.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-laptop-medical"></i>
+                        <h3>Innovation</h3>
+                        <p>We leverage technology to solve challenges faced by seniors.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ url_for('about') }}" class="btn">Learn More About Us</a>
+        </div>
+    </section>
+
+    <section id="about" class="{% if active_section == 'about' %}active-section{% endif %}">
+        <div class="section-content">
+            <h1>About iElder</h1>
+
+            <div id="statistics" class="stats-container">
+                <h2>Elder Care Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">56M+</div>
+                        <div class="stat-label">Adults 65+ in the US</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">80%</div>
+                        <div class="stat-label">Prefer aging at home</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">28%</div>
+                        <div class="stat-label">Live alone</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">53M</div>
+                        <div class="stat-label">Family caregivers</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Senior Population Growth</h3>
+                    <div class="chart" id="populationChart"></div>
+                </div>
+            </div>
+
+            <div id="impact" class="impact-section">
+                <h2>Our Impact</h2>
+                <div class="impact-metrics">
+                    <div class="impact-item">
+                        <div class="impact-number">10,000+</div>
+                        <div class="impact-label">Seniors assisted</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-number">850+</div>
+                        <div class="impact-label">Healthcare providers connected</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-number">92%</div>
+                        <div class="impact-label">User satisfaction rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mission" class="mission-details">
+                <h2>Our Mission & Vision</h2>
+                <p>iElder was founded in 2020 in response to the growing need for technology-enabled elder care solutions. Our platform bridges the gap between seniors, caregivers, and healthcare providers through innovative digital solutions.</p>
+                <p>We envision a world where aging is celebrated, where seniors have seamless access to care, and where technology enhances independence rather than creating barriers.</p>
+            </div>
+
+            <a href="{{ url_for('services') }}" class="btn">Explore Our Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="{% if active_section == 'services' %}active-section{% endif %}">
+        <div class="section-content">
+            <h1>Our Services</h1>
+
+            <div id="chat-assistance" class="chat-bot-section">
+    <h2>iElder AI Assistant</h2>
+    <p>Our AI assistant provides 24/7 support for seniors and caregivers. Ask questions, get reminders, or just have a friendly chat.</p>
+
+    <div class="chat-bot-container">
+        <div class="chat-header">
+            <div class="chat-title">iElder Assistant</div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! I'm your iElder assistant. How can I help you today?
+            </div>
+            <div class="message user-message">
+                I need help finding transportation to my doctor's appointment.
+            </div>
+            <div class="message bot-message">
+                I'd be happy to help with that. When is your appointment, and what's your location? I can find nearby transportation services for seniors.
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userMessage" placeholder="Type your question here...">
+            <a href="{{ url_for('chat') }}" class="send-btn"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+
+    <a href="{{ url_for('chat') }}" class="btn">Open Full Chat Assistant</a>
+</div>
+
+            <div id="nearby-services" class="nearby-services-section">
+                <h2>Nearby Elder Care Services</h2>
+                <p>Find healthcare facilities, community centers, and support services in your area.</p>
+
+                <div class="services-map-container">
+                    <div class="service-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="hospitals">Hospitals</button>
+                        <button class="filter-btn" data-filter="clinics">Clinics</button>
+                        <button class="filter-btn" data-filter="community">Community Centers</button>
+                    </div>
+
+                    <div class="services-map" id="servicesMap">
+                        <!-- Map will be rendered here -->
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Interactive map showing nearby elder care services</p>
+                        </div>
+                    </div>
+
+                    <div class="service-list">
+                        <div class="service-item" data-type="hospitals">
+                            <div class="service-icon"><i class="fas fa-hospital"></i></div>
+                            <div class="service-info">
+                                <h4>Memorial General Hospital</h4>
+                                <p>2.3 miles away • Open 24/7</p>
+                                <p>Specialized geriatric care unit</p>
+                            </div>
+                        </div>
+                        <div class="service-item" data-type="clinics">
+                            <div class="service-icon"><i class="fas fa-clinic-medical"></i></div>
+                            <div class="service-info">
+                                <h4>Sunshine Senior Clinic</h4>
+                                <p>0.8 miles away • Open 8am-6pm</p>
+                                <p>Medicare/Medicaid accepted</p>
+                            </div>
+                        </div>
+                        <div class="service-item" data-type="community">
+                            <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+                            <div class="service-info">
+                                <h4>Golden Years Community Center</h4>
+                                <p>1.5 miles away • Open 9am-5pm</p>
+                                <p>Daily activities and meal program</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resources" class="resources-section">
+                <h2>Elder Care Resources</h2>
+                <div class="resources-grid">
+                    <a href="#" class="resource-card">
+                        <i class="fas fa-pills"></i>
+                        <h3>Medication Management</h3>
+                        <p>Tools and tips for managing prescriptions</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Nutrition Guide</h3>
+                        <p>Healthy eating for seniors</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Home Safety</h3>
+                        <p>Making living spaces safer</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <i class="fas fa-file-medical"></i>
+                        <h3>Medicare Help</h3>
+                        <p>Understanding benefits and coverage</p>
+                    </a>
+                </div>
+            </div>
+
+            <a href="{{ url_for('contact') }}" class="btn">Get Support Now</a>
+        </div>
+    </section>
+
+    <section id="contact" class="{% if active_section == 'contact' %}active-section{% endif %}">
+        <div class="section-content">
+            <h1>Contact iElder</h1>
+            <p>Have questions or need assistance? Our support team is here to help you or your loved ones.</p>
+
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call Us</h3>
+                    <p>1-800-IELDER-HELP</p>
+                    <p>Available 24/7</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>support@ielder.org</p>
+                    <p>Response within 24 hours</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Chat with a representative</p>
+                    <p>Available 8am-8pm daily</p>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <h2>Send Us a Message</h2>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="inquiry-type">Type of Inquiry</label>
+                    <select id="inquiry-type" name="inquiry-type">
+                        <option value="general">General Information</option>
+                        <option value="services">Services Question</option>
+                        <option value="support">Technical Support</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                i<span>Elder</span>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About Us</a></li>
+                        <li><a href="{{ url_for('services') }}">Services</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Elder Care Guide</a></li>
+                        <li><a href="#">Caregiver Support</a></li>
+                        <li><a href="#">Medicare Information</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 iElder. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
