@@ -7,7 +7,6 @@ import requests
 import time
 import re
 import logging
-from classifier.model import Classifier
 from crisis_detector import CrisisDetector
 from conversation_tracker import ConversationTracker
 
@@ -17,7 +16,6 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key_here"  # Change this in production
-classifier = Classifier()
 crisis_detector = CrisisDetector()
 conversation_tracker = ConversationTracker()
 
@@ -68,8 +66,6 @@ def generate_response_stream(message, user_id):
                 json.dump([], f)
 
     # Get sentiment tags from the sentiment model
-    sentiment_tags = classifier.inference(message)
-    logger.info(f"Sentiment tags: {sentiment_tags}")
 
     # Try to get user state tracking data
     tracker_context = ""
