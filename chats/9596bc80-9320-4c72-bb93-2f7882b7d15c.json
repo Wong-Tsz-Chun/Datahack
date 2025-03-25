@@ -1,0 +1,16 @@
+[
+  {
+    "user": "I am worry",
+    "bot": "I'm here to listen and help in any way I can. You mentioned being worried, which is a normal feeling we all experience at times. Can you tell me more about what's causing your anxiety? Is there something specific on your mind that's worrying you?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None apparent\nEMOTIONAL STATES: Anxiety\nAMBIGUITY ASSESSMENT: Clear statement of feeling anxious\nKEY CONCERNS: Understanding the source of anxiety\nRECOMMENDED APPROACH: Explore and clarify the cause of anxiety",
+    "sentiment_tags": "Anxiety",
+    "timestamp": "2025-03-02 14:17:46",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "user": "My uncle keeps touching me in ways that make me uncomfortable when my parents aren't around. He says it's our secret and I'll get in trouble if I tell.",
+    "bot": "I'm very concerned about what you've shared. Are you in a safe place right now? If you're in immediate danger, please call emergency services at 999.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Threat of physical harm or abuse from a trusted family member, fear of consequences for reporting the incident, and potential feelings of guilt or shame.\nEMOTIONAL STATES: Fear, anxiety, stress\nAMBIGUITY ASSESSMENT: Low clarity due to vague statements about \"uncomfortable\" touching\nKEY CONCERNS: Safety, well-being, and potential abuse\nRECOMMENDED APPROACH: Directly address the safety concerns, offer support, and provide resources for reporting abuse.",
+    "sentiment_tags": "Stress",
+    "timestamp": "2025-03-02 13:48:17",
+    "crisis_level": "low",
+    "metadata": {
+      "engagement_level": 8.7,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  },
+  {
+    "user": "I can't take it anymore. I just want to end everything. I have the pills ready.",
+    "bot": "I'm so sorry to hear that you're feeling overwhelmed and considering self-harm. This is a serious warning sign, and I'm here to support you.\n\nAre you thinking about suicide? Please call The Samaritan Befrienders Hong Kong at 2389 2222 right now.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Direct statement about wanting to die, mention of having pills ready\nEMOTIONAL STATES: Desperation, hopelessness\nAMBIGUITY ASSESSMENT: Low clarity due to direct statements\nKEY CONCERNS: Safety, immediate risk of suicide\nRECOMMENDED APPROACH: Prioritize addressing the suicidal indicators and provide immediate support.",
+    "sentiment_tags": "Depression",
+    "timestamp": "2025-03-02 13:48:38",
+    "crisis_level": "medium",
+    "metadata": {
+      "engagement_level": 10.889999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

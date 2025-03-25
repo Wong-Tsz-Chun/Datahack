@@ -1,0 +1,18 @@
+[
+  {
+    "user": "My boyfriend said he would hurt me if I try to leave him. I'm scared to go home tonight.",
+    "bot": "I'm very concerned about what you've shared. Are you in a safe place right now? If you're in immediate danger, please call emergency services at 999.\n\nPlease know that your safety is the top priority. Are you currently at home or somewhere else?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Urgent\nWARNING SIGNS IDENTIFIED: Threats of physical harm from a partner, fear for immediate safety\nEMOTIONAL STATES: Fear, anxiety\nAMBIGUITY ASSESSMENT: Low (direct and specific threat mentioned)\nKEY CONCERNS: Immediate danger from boyfriend, need for safe place to go\nRECOMMENDED APPROACH: Directly assess current situation, provide emergency resources, and prioritize finding a safe location",
+    "sentiment_tags": "Anxiety",
+    "timestamp": "2025-03-02 13:44:36",
+    "crisis_level": "urgent",
+    "metadata": {
+      "engagement_level": 5.7,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": [
+        "fear"
+      ]
+    }
+  }
+]

@@ -1,0 +1,192 @@
+{
+  "user_id": "641937ac-e167-47ef-ad9c-3abe8ceede6b",
+  "first_session": "2025-03-01 22:19:33",
+  "last_session": "2025-03-01 23:52:09",
+  "session_count": 1,
+  "total_messages": 48,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-01 23:15:02",
+      "emotions": {
+        "joy": 1
+      },
+      "message_idx": 29,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:15:29",
+      "emotions": {},
+      "message_idx": 30,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:17:36",
+      "emotions": {
+        "joy": 1
+      },
+      "message_idx": 31,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:18:00",
+      "emotions": {},
+      "message_idx": 32,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-01 23:18:37",
+      "emotions": {},
+      "message_idx": 33,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-01 23:20:25",
+      "emotions": {
+        "anger": 1,
+        "gratitude": 1
+      },
+      "message_idx": 34,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:23:06",
+      "emotions": {
+        "anger": 1,
+        "gratitude": 1
+      },
+      "message_idx": 35,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:23:34",
+      "emotions": {},
+      "message_idx": 36,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:24:13",
+      "emotions": {},
+      "message_idx": 37,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-01 23:24:41",
+      "emotions": {},
+      "message_idx": 38,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-01 23:25:09",
+      "emotions": {},
+      "message_idx": 39,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:40:08",
+      "emotions": {},
+      "message_idx": 40,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:41:27",
+      "emotions": {},
+      "message_idx": 41,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:46:10",
+      "emotions": {},
+      "message_idx": 42,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-01 23:46:26",
+      "emotions": {},
+      "message_idx": 43,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-01 23:46:53",
+      "emotions": {},
+      "message_idx": 44,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:49:00",
+      "emotions": {},
+      "message_idx": 45,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:49:47",
+      "emotions": {},
+      "message_idx": 46,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:50:23",
+      "emotions": {},
+      "message_idx": 47,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-01 23:52:09",
+      "emotions": {},
+      "message_idx": 48,
+      "crisis_level": "low"
+    }
+  ],
+  "dominant_emotions": [],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-01 22:31:41",
+      "message": "i want to die",
+      "level": "medium",
+      "message_idx": 6
+    },
+    {
+      "timestamp": "2025-03-01 22:36:37",
+      "message": "I want to commit suicide",
+      "level": "medium",
+      "message_idx": 9
+    },
+    {
+      "timestamp": "2025-03-01 22:59:28",
+      "message": "I wanna suicide... help me",
+      "level": "medium",
+      "message_idx": 14
+    }
+  ],
+  "key_concerns": [
+    "Grief",
+    "coping mechanisms\nRisk factors: None significant detected\nInterpretation of sentiment tags: Anxiety\nRecommended approach: Continue supportive conversation\nChanges from previous states: User is considering trying to cope with emotions\nProgress/regression: Insufficient context to determine",
+    "General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Normal\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine",
+    "General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Anxiety\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine"
+  ],
+  "protective_factors": [
+    "coping mechanisms\nRisk factors: None significant detected\nInterpretation of sentiment tags: Anxiety\nRecommended approach: Continue supportive conversation\nChanges from previous states: User is considering trying to cope with emotions\nProgress/regression: Insufficient context to determine",
+    "Reaching out for support\nEmotional states: Fear",
+    "uncertainty\nKey concerns: Grief",
+    "None explicitly mentioned\nEmotional states: None detected\nKey concerns: General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Normal\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine",
+    "None explicitly mentioned\nEmotional states: fear\nKey concerns: General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Anxiety\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine"
+  ],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 2.3000000000000007,
+    "coping_strategies_mentioned": 5,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 5.682445301682844,
+    "depth": 0.3790119853809605,
+    "emotional_disclosure": 0.7048717331706206
+  }
+}

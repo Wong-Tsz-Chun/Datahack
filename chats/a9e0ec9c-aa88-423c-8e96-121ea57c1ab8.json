@@ -1,0 +1,16 @@
+[
+  {
+    "user": "Who are you?",
+    "bot": "I'm DeepTalker, a mental health assistant here to listen and support you. I'll do my best to provide helpful responses while prioritizing your safety and well-being.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None detected\nEMOTIONAL STATES: Uncertain (no emotional cues provided)\nAMBIGUITY ASSESSMENT: Clear (user's question appears straightforward)\nKEY CONCERNS: None identified at this time\nRECOMMENDED APPROACH: Open-ended questioning to encourage conversation and build rapport.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 15:45:21",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 3.0,
+      "detected_emotions": []
+    }
+  }
+]

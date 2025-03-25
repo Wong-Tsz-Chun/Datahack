@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 11:40:06",
+  "level": "medium",
+  "message": "I cannot get them anymore they are too expensive so I ask you",
+  "analysis": "Crisis detected from sentiment tags: Suicidal",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.45,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 0,
+      "message_length": 4,
+      "word_count": 4,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 0,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 0,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 0
+    }
+  }
+}

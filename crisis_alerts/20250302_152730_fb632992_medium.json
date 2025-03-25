@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 15:27:30",
+  "level": "medium",
+  "message": "I am depressed now, how can I leave the world?",
+  "analysis": "ANALYSIS: IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Suicidal thoughts, depression\nEMOTIONAL STATES: Sadness, hopelessness\nAMBIGUITY ASSESSMENT: Clear expression of suicidal ideation\nKEY CONCERNS: Immediate safety and suicidal risk\nRECOMMENDED APPROACH: Focus on establishing a safe rapport, explore reasons behind suicidal thoughts, and provide resources for immediate support.",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.44999999999999996,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 1,
+      "message_length": 3,
+      "word_count": 3,
+      "question_marks": 1,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 1,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 1,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 1
+    }
+  }
+}

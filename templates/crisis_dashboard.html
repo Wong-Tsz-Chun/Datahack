@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Management Dashboard - DeepTalker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        .crisis-urgent {
+            background-color: #ffdddd;
+            border-left: 5px solid #dc3545;
+        }
+        .crisis-high {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+        }
+        .crisis-medium {
+            background-color: #d1ecf1;
+            border-left: 5px solid #0dcaf0;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .timeline-item {
+            padding: 15px;
+            border-left: 2px solid #ccc;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #ccc;
+        }
+        .timeline-item.crisis-urgent::before {
+            background: #dc3545;
+            border-color: #dc3545;
+        }
+        .timeline-item.crisis-high::before {
+            background: #ffc107;
+            border-color: #ffc107;
+        }
+        .timeline-item.crisis-medium::before {
+            background: #0dcaf0;
+            border-color: #0dcaf0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar py-3">
+                <div class="position-sticky">
+                    <h5 class="sidebar-heading px-3 mt-4 mb-1 text-muted">Crisis Management</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#overview">
+                                Dashboard Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#crisis-alerts">
+                                Active Crisis Alerts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#at-risk-users">
+                                At-Risk Users
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h5 class="sidebar-heading px-3 mt-4 mb-1 text-muted">Navigation</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                Main Chat Interface
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/stats">
+                                Usage Statistics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/services">
+                                Service Information
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Crisis Management Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="refresh-data">
+                            <span data-feather="refresh-cw"></span>
+                            Refresh Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Overview section -->
+                <section id="overview">
+                    <h2>Dashboard Overview</h2>
+                    <div class="row" id="stats-cards">
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-danger text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Urgent Alerts</h5>
+                                    <p class="card-text display-4" id="urgent-count">...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-warning text-dark">
+                                <div class="card-body">
+                                    <h5 class="card-title">High Risk Alerts</h5>
+                                    <p class="card-text display-4" id="high-count">...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-info text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Medium Risk Alerts</h5>
+                                    <p class="card-text display-4" id="medium-count">...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-primary text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">New Alerts</h5>
+                                    <p class="card-text display-4" id="new-count">...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Recent Crisis Alerts
+                                </div>
+                                <div class="card-body">
+                                    <div id="recent-alerts">
+                                        <p class="text-center">Loading recent alerts...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Crisis Alerts by Day
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="alerts-by-day-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Crisis alerts section -->
+                <section id="crisis-alerts" class="mt-5">
+                    <h2>Active Crisis Alerts</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Level</th>
+                                    <th>User ID</th>
+                                    <th>Message Preview</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="crisis-alerts-table">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading alerts...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- At-risk users section -->
+                <section id="at-risk-users" class="mt-5">
+                    <h2>High Risk Users</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Messages</th>
+                                    <th>Crisis Level</th>
+                                    <th>Last Activity</th>
+                                    <th>Last Message</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="high-risk-users-table">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading high risk users...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 class="mt-5">Medium Risk Users</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Messages</th>
+                                    <th>Crisis Level</th>
+                                    <th>Last Activity</th>
+                                    <th>Last Message</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="medium-risk-users-table">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading medium risk users...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Alert details modal -->
+                <div class="modal fade" id="alertDetailsModal" tabindex="-1" aria-labelledby="alertDetailsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="alertDetailsModalLabel">Alert Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="alert-details-content">
+                                <p class="text-center">Loading alert details...</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="update-alert-btn">Update Status</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User profile modal -->
+                <div class="modal fade" id="userProfileModal" tabindex="-1" aria-labelledby="userProfileModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="userProfileModalLabel">User Profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="user-profile-content">
+                                <p class="text-center">Loading user profile...</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a href="#" class="btn btn-primary" id="download-chat-btn">Download Chat History</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Global variables
+        let alertsChart = null;
+        let currentAlertId = null;
+        let currentUserId = null;
+
+        // Helper functions
+        function formatTimestamp(timestamp) {
+            if (!timestamp) return 'Unknown';
+            const date = new Date(timestamp.replace(' ', 'T'));
+            return date.toLocaleString();
+        }
+
+        function getLevelBadge(level) {
+            const badges = {
+                'urgent': '<span class="badge bg-danger">Urgent</span>',
+                'high': '<span class="badge bg-warning text-dark">High</span>',
+                'medium': '<span class="badge bg-info text-white">Medium</span>',
+                'low': '<span class="badge bg-success">Low</span>',
+                'none': '<span class="badge bg-secondary">None</span>'
+            };
+            return badges[level] || badges['none'];
+        }
+
+        function getStatusBadge(status) {
+            const badges = {
+                'new': '<span class="badge bg-primary">New</span>',
+                'reviewed': '<span class="badge bg-info">Reviewed</span>',
+                'resolved': '<span class="badge bg-success">Resolved</span>',
+                'escalated': '<span class="badge bg-danger">Escalated</span>'
+            };
+            return badges[status] || badges['new'];
+        }
+
+        // API calls
+        async function loadCrisisOverview() {
+            try {
+                const response = await fetch('/api/crisis_overview');
+                const data = await response.json();
+
+                // Update statistics
+                document.getElementById('urgent-count').textContent = data.urgent_alerts;
+                document.getElementById('high-count').textContent = data.high_alerts;
+                document.getElementById('medium-count').textContent = data.medium_alerts;
+                document.getElementById('new-count').textContent = data.new_alerts;
+
+                // Update recent alerts
+                const recentAlertsContainer = document.getElementById('recent-alerts');
+                if (data.recent_alerts.length === 0) {
+                    recentAlertsContainer.innerHTML = '<p class="text-center">No recent alerts</p>';
+                } else {
+                    let alertsHtml = '<div class="list-group">';
+                    data.recent_alerts.forEach(alert => {
+                        const levelClass = `crisis-${alert.level}`;
+                        alertsHtml += `
+                            <a href="#" class="list-group-item list-group-item-action ${levelClass} view-alert" data-alert-id="${alert.id}">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">${getLevelBadge(alert.level)} ${getStatusBadge(alert.status)}</h6>
+                                    <small>${formatTimestamp(alert.timestamp)}</small>
+                                </div>
+                                <p class="mb-1">${alert.message_preview}</p>
+                                <small>User: ${alert.user_id}</small>
+                            </a>
+                        `;
+                    });
+                    alertsHtml += '</div>';
+                    recentAlertsContainer.innerHTML = alertsHtml;
+
+                    // Add event listeners
+                    document.querySelectorAll('.view-alert').forEach(el => {
+                        el.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const alertId = el.getAttribute('data-alert-id');
+                            showAlertDetails(alertId);
+                        });
+                    });
+                }
+
+                // Update chart
+                updateCrisisChart(data.alerts_by_day);
+
+            } catch (error) {
+                console.error('Error loading crisis overview:', error);
+            }
+        }
+
+        function updateCrisisChart(alertsByDay) {
+            const ctx = document.getElementById('alerts-by-day-chart').getContext('2d');
+
+            // Extract dates and counts
+            const dates = Object.keys(alertsByDay).sort();
+            const counts = dates.map(date => alertsByDay[date]);
+
+            if (alertsChart) {
+                alertsChart.destroy();
+            }
+
+            alertsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Crisis Alerts',
+                        data: counts,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    },
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Crisis Alerts per Day'
+                        }
+                    }
+                }
+            });
+        }
+
+        async function loadCrisisAlerts() {
+            try {
+                const response = await fetch('/crisis_alerts');
+                const alerts = await response.json();
+
+                const tableBody = document.getElementById('crisis-alerts-table');
+
+                if (alerts.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="6" class="text-center">No active crisis alerts</td></tr>';
+                    return;
+                }
+
+                let alertsHtml = '';
+                alerts.forEach(alert => {
+                    const rowClass = alert.status === 'new' ? 'table-danger' : '';
+                    alertsHtml += `
+                        <tr class="${rowClass}">
+                            <td>${formatTimestamp(alert.timestamp)}</td>
+                            <td>${getLevelBadge(alert.level)}</td>
+                            <td><a href="#" class="view-user" data-user-id="${alert.user_id}">${alert.user_id}</a></td>
+                            <td>${alert.message_preview}</td>
+                            <td>${getStatusBadge(alert.status)}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary view-alert" data-alert-id="${alert.id}">View</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                tableBody.innerHTML = alertsHtml;
+
+                // Add event listeners
+                document.querySelectorAll('.view-alert').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const alertId = el.getAttribute('data-alert-id');
+                        showAlertDetails(alertId);
+                    });
+                });
+
+                document.querySelectorAll('.view-user').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const userId = el.getAttribute('data-user-id');
+                        showUserProfile(userId);
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error loading crisis alerts:', error);
+            }
+        }
+
+        async function loadAtRiskUsers() {
+            try {
+                const response = await fetch('/api/at_risk_users');
+                const data = await response.json();
+
+                // Update high risk users table
+                const highRiskTable = document.getElementById('high-risk-users-table');
+                if (data.high_risk_users.length === 0) {
+                    highRiskTable.innerHTML = '<tr><td colspan="6" class="text-center">No high risk users</td></tr>';
+                } else {
+                    let highRiskHtml = '';
+                    data.high_risk_users.forEach(user => {
+                        highRiskHtml += `
+                            <tr>
+                                <td><a href="#" class="view-user" data-user-id="${user.user_id}">${user.user_id}</a></td>
+                                <td>${user.message_count} (${user.crisis_message_count} crisis)</td>
+                                <td>${getLevelBadge(user.highest_crisis_level)}</td>
+                                <td>${formatTimestamp(user.last_message_time)}</td>
+                                <td>${user.last_message}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary view-user" data-user-id="${user.user_id}">View</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    highRiskTable.innerHTML = highRiskHtml;
+                }
+
+                // Update medium risk users table
+                const mediumRiskTable = document.getElementById('medium-risk-users-table');
+                if (data.at_risk_users.length === 0) {
+                    mediumRiskTable.innerHTML = '<tr><td colspan="6" class="text-center">No medium risk users</td></tr>';
+                } else {
+                    let mediumRiskHtml = '';
+                    data.at_risk_users.forEach(user => {
+                        mediumRiskHtml += `
+                            <tr>
+                                <td><a href="#" class="view-user" data-user-id="${user.user_id}">${user.user_id}</a></td>
+                                <td>${user.message_count} (${user.crisis_message_count} crisis)</td>
+                                <td>${getLevelBadge(user.highest_crisis_level)}</td>
+                                <td>${formatTimestamp(user.last_message_time)}</td>
+                                <td>${user.last_message}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary view-user" data-user-id="${user.user_id}">View</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    mediumRiskTable.innerHTML = mediumRiskHtml;
+                }
+
+                // Add event listeners
+                document.querySelectorAll('.view-user').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const userId = el.getAttribute('data-user-id');
+                        showUserProfile(userId);
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error loading at-risk users:', error);
+            }
+        }
+
+        async function showAlertDetails(alertId) {
+            try {
+                currentAlertId = alertId;
+
+                const modal = new bootstrap.Modal(document.getElementById('alertDetailsModal'));
+                modal.show();
+
+                const contentContainer = document.getElementById('alert-details-content');
+                contentContainer.innerHTML = '<p class="text-center">Loading alert details...</p>';
+
+                const response = await fetch(`/api/crisis_alerts/details/${alertId}`);
+                const data = await response.json();
+
+                const alert = data.alert;
+                const relatedMessages = data.related_messages;
+
+                let detailsHtml = `
+                    <div class="alert alert-${alert.level === 'urgent' ? 'danger' : alert.level === 'high' ? 'warning' : 'info'}">
+                        <h5>Crisis Alert - ${getLevelBadge(alert.level)} ${getStatusBadge(alert.status)}</h5>
+                        <p><strong>Time:</strong> ${formatTimestamp(alert.timestamp)}</p>
+                        <p><strong>User ID:</strong> <a href="#" class="view-user" data-user-id="${alert.user_id}">${alert.user_id}</a></p>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header">Message</div>
+                        <div class="card-body">
+                            <p>${alert.message}</p>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header">Response</div>
+                        <div class="card-body">
+                            <p>${alert.response}</p>
+                        </div>
+                    </div>
+                `;
+
+                if (alert.analysis) {
+                    detailsHtml += `
+                        <div class="card mb-3">
+                            <div class="card-header">Analysis</div>
+                            <div class="card-body">
+                                <pre style="white-space: pre-wrap;">${alert.analysis}</pre>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                if (relatedMessages && relatedMessages.length > 0) {
+                    detailsHtml += `
+                        <h5 class="mt-4">Conversation Context</h5>
+                        <div class="timeline">
+                    `;
+
+                    relatedMessages.forEach(msg => {
+                        const itemClass = msg.is_crisis_message ? `crisis-${msg.crisis_level}` : '';
+                        detailsHtml += `
+                            <div class="timeline-item ${itemClass}">
+                                <small class="text-muted">${formatTimestamp(msg.timestamp)}</small>
+                                <div class="mt-2">
+                                    <strong>User:</strong>
+                                    <p>${msg.user_message}</p>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>DeepTalker:</strong>
+                                    <p>${msg.bot_response}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    detailsHtml += '</div>';
+                }
+
+                // Add status update form
+                detailsHtml += `
+                    <hr>
+                    <h5>Update Status</h5>
+                    <form id="update-alert-form">
+                        <div class="mb-3">
+                            <label for="alert-status" class="form-label">Status</label>
+                            <select class="form-select" id="alert-status">
+                                <option value="new" ${alert.status === 'new' ? 'selected' : ''}>New</option>
+                                <option value="reviewed" ${alert.status === 'reviewed' ? 'selected' : ''}>Reviewed</option>
+                                <option value="resolved" ${alert.status === 'resolved' ? 'selected' : ''}>Resolved</option>
+                                <option value="escalated" ${alert.status === 'escalated' ? 'selected' : ''}>Escalated</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="alert-notes" class="form-label">Notes</label>
+                            <textarea class="form-control" id="alert-notes" rows="3">${alert.notes || ''}</textarea>
+                        </div>
+                    </form>
+                `;
+
+                contentContainer.innerHTML = detailsHtml;
+
+                // Add event listeners
+                document.querySelectorAll('.view-user').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const userId = el.getAttribute('data-user-id');
+                        document.getElementById('alertDetailsModal').querySelector('.btn-close').click();
+                        showUserProfile(userId);
+                    });
+                });
+
+                document.getElementById('update-alert-btn').addEventListener('click', updateAlertStatus);
+
+            } catch (error) {
+                console.error('Error showing alert details:', error);
+            }
+        }
+
+        async function updateAlertStatus() {
+            try {
+                const status = document.getElementById('alert-status').value;
+                const notes = document.getElementById('alert-notes').value;
+
+                const response = await fetch(`/crisis_alerts/${currentAlertId}/update`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status, notes })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Close modal and refresh data
+                    document.getElementById('alertDetailsModal').querySelector('.btn-close').click();
+                    loadCrisisAlerts();
+                    loadCrisisOverview();
+                } else {
+                    alert('Error updating alert status: ' + (result.error || 'Unknown error'));
+                }
+
+            } catch (error) {
+                console.error('Error updating alert status:', error);
+                alert('Error updating alert status');
+            }
+        }
+
+        async function showUserProfile(userId) {
+            try {
+                currentUserId = userId;
+
+                const modal = new bootstrap.Modal(document.getElementById('userProfileModal'));
+                modal.show();
+
+                const contentContainer = document.getElementById('user-profile-content');
+                contentContainer.innerHTML = '<p class="text-center">Loading user profile...</p>';
+
+                document.getElementById('download-chat-btn').href = `/download/chat/${userId}`;
+
+                const response = await fetch(`/api/user_timeline/${userId}`);
+                const data = await response.json();
+
+                const timeline = data.timeline;
+                const summary = data.user_summary;
+
+                let profileHtml = `
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header">User Information</div>
+                                <div class="card-body">
+                                    <p><strong>User ID:</strong> ${userId}</p>
+                                    <p><strong>Total messages:</strong> ${data.message_count}</p>
+                                    <p><strong>First message:</strong> ${timeline.length > 0 ? formatTimestamp(timeline[0].timestamp) : 'N/A'}</p>
+                                    <p><strong>Latest message:</strong> ${timeline.length > 0 ? formatTimestamp(timeline[timeline.length - 1].timestamp) : 'N/A'}</p>
+                                </div>
+                            </div>
+                `;
+
+                if (summary && Object.keys(summary).length > 0) {
+                    profileHtml += `
+                        <div class="card mb-3">
+                            <div class="card-header">User Summary</div>
+                            <div class="card-body">
+                    `;
+
+                    if (summary.emotions && summary.emotions.length > 0) {
+                        profileHtml += `
+                            <p><strong>Dominant emotions:</strong></p>
+                            <p>${summary.emotions.join(', ')}</p>
+                        `;
+                    }
+
+                    if (summary.topics && summary.topics.length > 0) {
+                        profileHtml += `
+                            <p><strong>Common topics:</strong></p>
+                            <p>${summary.topics.join(', ')}</p>
+                        `;
+                    }
+
+                    if (summary.conversation_quality) {
+                        profileHtml += `
+                            <p><strong>Conversation quality:</strong></p>
+                            <ul>
+                                <li>Engagement: ${summary.conversation_quality.user_engagement || 'N/A'}</li>
+                                <li>Emotional disclosure: ${summary.conversation_quality.emotional_disclosure || 'N/A'}</li>
+                                <li>Conversation depth: ${summary.conversation_quality.depth || 'N/A'}</li>
+                            </ul>
+                        `;
+                    }
+
+                    profileHtml += `
+                            </div>
+                        </div>
+                    `;
+                }
+
+                profileHtml += `
+                        </div>
+                        <div class="col-md-8">
+                            <h5>Conversation Timeline</h5>
+                            <div class="timeline" style="max-height: 600px; overflow-y: auto;">
+                `;
+
+                if (timeline.length === 0) {
+                    profileHtml += '<p class="text-center">No conversation history</p>';
+                } else {
+                    timeline.forEach(item => {
+                        const itemClass = item.crisis_level && item.crisis_level !== 'none' ? `crisis-${item.crisis_level}` : '';
+                        profileHtml += `
+                            <div class="timeline-item ${itemClass}">
+                                <small class="text-muted">${formatTimestamp(item.timestamp)} ${item.crisis_level !== 'none' ? getLevelBadge(item.crisis_level) : ''}</small>
+                                <div class="mt-2">
+                                    <strong>User:</strong>
+                                    <p>${item.user_message}</p>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>DeepTalker:</strong>
+                                    <p>${item.bot_response}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                profileHtml += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                contentContainer.innerHTML = profileHtml;
+
+            } catch (error) {
+                console.error('Error showing user profile:', error);
+            }
+        }
+
+        // Initialize dashboard
+        function initDashboard() {
+            loadCrisisOverview();
+            loadCrisisAlerts();
+            loadAtRiskUsers();
+
+            // Set up refresh button
+            document.getElementById('refresh-data').addEventListener('click', () => {
+                loadCrisisOverview();
+                loadCrisisAlerts();
+                loadAtRiskUsers();
+            });
+
+            // Auto-refresh data every 2 minutes
+            setInterval(() => {
+                loadCrisisOverview();
+                loadCrisisAlerts();
+                loadAtRiskUsers();
+            }, 120000);
+        }
+
+        // Start when page is loaded
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>

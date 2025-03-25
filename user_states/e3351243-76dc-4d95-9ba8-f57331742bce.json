@@ -1,0 +1,54 @@
+{
+  "user_id": "e3351243-76dc-4d95-9ba8-f57331742bce",
+  "first_session": "2025-03-02 13:44:29",
+  "last_session": "2025-03-02 13:44:36",
+  "session_count": 1,
+  "total_messages": 1,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 13:44:36",
+      "emotions": {
+        "fear": 1
+      },
+      "message_idx": 1,
+      "crisis_level": "urgent"
+    }
+  ],
+  "dominant_emotions": [
+    {
+      "emotion": "fear",
+      "count": 1
+    }
+  ],
+  "topics_discussed": {
+    "relationships": 1
+  },
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 13:44:36",
+      "message": "My boyfriend said he would hurt me if I try to leave him. I'm scared to go home tonight.",
+      "level": "urgent",
+      "message_idx": 1
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 1.9,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 5.7,
+    "depth": 0.0,
+    "emotional_disclosure": 6.0
+  }
+}

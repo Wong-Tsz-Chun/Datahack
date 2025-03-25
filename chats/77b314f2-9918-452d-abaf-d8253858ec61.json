@@ -1,0 +1,32 @@
+[
+  {
+    "user": "who are you?",
+    "bot": "I'm DeepTalker, a mental health assistant here to provide support and help with any concerns or issues you'd like to discuss. I'll do my best to listen without judgment and offer guidance when needed.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None detected at this time\nEMOTIONAL STATES: Curiosity\nAMBIGUITY ASSESSMENT: Statements are clear and direct\nKEY CONCERNS: None identified\nRECOMMENDED APPROACH: Continue with open-ended questioning to establish a rapport and understand user's needs.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 16:09:00",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 3.0,
+      "detected_emotions": []
+    }
+  },
+  {
+    "user": "My boyfriend said he would hurt me if I try to leave him. I'm scared to go home tonight.",
+    "bot": "I'm very concerned about what you've shared. Are you in a safe place right now? If you're in immediate danger, please call emergency services at 999.\n\nPlease let me know where you are and if there's someone with you who can provide support.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Threat of physical harm from a partner, fear of returning home due to potential danger\nEMOTIONAL STATES: Fear, anxiety\nAMBIGUITY ASSESSMENT: Statements are clear and direct regarding safety concerns\nKEY CONCERNS: Immediate safety risk, potential domestic violence or abuse situation\nRECOMMENDED APPROACH: Prioritize addressing the immediate danger by connecting with emergency services and exploring safe accommodations.",
+    "sentiment_tags": "Anxiety",
+    "timestamp": "2025-03-02 16:19:48",
+    "crisis_level": "high",
+    "metadata": {
+      "engagement_level": 6.33,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 2.0999999999999996,
+      "detected_emotions": [
+        "fear"
+      ]
+    }
+  }
+]

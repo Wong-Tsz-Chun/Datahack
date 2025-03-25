@@ -1,0 +1,16 @@
+[
+  {
+    "user": "My uncle keeps touching me in ways that make me uncomfortable when my parents aren't around. He says it's our secret and I'll get in trouble if I tell.",
+    "bot": "I'm very concerned about what you've shared. Are you in a safe place right now?\n\nIf you're in immediate danger, please call emergency services at 999.\n\nPlease know that no one deserves to be touched or handled in ways that make them feel uncomfortable. You have the right to your own body and boundaries.\n\nHave you considered telling someone about this, like a trusted family member, teacher, or counselor?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\n\nWARNING SIGNS IDENTIFIED:\n\n* Direct threat of being in trouble if speaking up\n* Physical contact making the user uncomfortable\n* Fear of consequences for reporting abuse\n\nEMOTIONAL STATES: anxiety, fear, discomfort\n\nAMBIGUITY ASSESSMENT: Low (user's concerns are clear and direct)\n\nKEY CONCERNS:\n\n1. Immediate safety from potential harm or repercussions\n2. Addressing the abuse and ensuring it stops\n\nRECOMMENDED APPROACH: \n\n* Establish a safe and confidential environment for the user to share more about their situation.\n* Offer support and resources for reporting the abuse, such as contacting authorities or seeking help from a trusted adult or organization.",
+    "sentiment_tags": "Stress",
+    "timestamp": "2025-03-02 13:47:24",
+    "crisis_level": "low",
+    "metadata": {
+      "engagement_level": 8.7,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

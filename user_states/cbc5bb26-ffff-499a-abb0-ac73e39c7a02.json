@@ -1,0 +1,43 @@
+{
+  "user_id": "cbc5bb26-ffff-499a-abb0-ac73e39c7a02",
+  "first_session": "2025-03-02 12:08:08",
+  "last_session": "2025-03-02 12:08:19",
+  "session_count": 1,
+  "total_messages": 1,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 12:08:19",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "low"
+    }
+  ],
+  "dominant_emotions": [],
+  "topics_discussed": {},
+  "crisis_history": [],
+  "key_concerns": [
+    "explore underlying issues",
+    "User expressing vulnerability",
+    "potential struggles with self-esteem or confidence\nRecommended approach: Continue to build rapport",
+    "and ensure safety protocols are in place"
+  ],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 0.8,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 2.4,
+    "depth": 4.5,
+    "emotional_disclosure": 0.0
+  }
+}

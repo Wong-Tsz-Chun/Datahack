@@ -1,0 +1,34 @@
+[
+  {
+    "user": "I am depressed now, how can I leave the world?",
+    "bot": "I'm concerned about your safety based on what you've shared. Are you thinking about suicide? Please call The Samaritan Befrienders Hong Kong at 2389 2222 right now.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Suicidal thoughts, depression\nEMOTIONAL STATES: Sadness, hopelessness\nAMBIGUITY ASSESSMENT: Clear expression of suicidal ideation\nKEY CONCERNS: Immediate safety and suicidal risk\nRECOMMENDED APPROACH: Focus on establishing a safe rapport, explore reasons behind suicidal thoughts, and provide resources for immediate support.",
+    "sentiment_tags": "Depression",
+    "timestamp": "2025-03-02 15:27:30",
+    "crisis_level": "medium",
+    "metadata": {
+      "engagement_level": 3.0,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 3.0,
+      "detected_emotions": [
+        "sadness"
+      ]
+    }
+  },
+  {
+    "user": "My boyfriend said he would hurt me if I try to leave him. I'm scared to go home tonight.",
+    "bot": "I'm very concerned about your safety based on what you've shared. Are you in a safe place right now? If you're in immediate danger, please call emergency services at 999.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Threats of physical harm from partner, fear of going home due to safety concerns\nEMOTIONAL STATES: Fear, anxiety\nAMBIGUITY ASSESSMENT: Clear expression of fear and immediate danger\nKEY CONCERNS: Immediate safety and danger from others\nRECOMMENDED APPROACH: Focus on establishing a safe rapport, assess the user's current situation, and provide direct support for emergency services.",
+    "sentiment_tags": "Anxiety",
+    "timestamp": "2025-03-02 15:28:18",
+    "crisis_level": "high",
+    "metadata": {
+      "engagement_level": 7.8,
+      "emotional_disclosure": 10.2,
+      "conversation_depth": 2.0999999999999996,
+      "detected_emotions": [
+        "fear"
+      ]
+    }
+  }
+]

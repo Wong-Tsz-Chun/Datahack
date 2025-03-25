@@ -1,0 +1,61 @@
+{
+  "suicidal_intent": [
+    "want to die",
+    "kill myself",
+    "end my life",
+    "suicide",
+    "rather be dead",
+    "don't want to live",
+    "no reason to live",
+    "better off dead",
+    "planning to end",
+    "looking up ways to die",
+    "research methods",
+    "my suicide",
+    "how to commit suicide",
+    "ending things",
+    "take my life"
+  ],
+  "means_access": [
+    "have pills",
+    "got a gun",
+    "rope",
+    "lethal",
+    "weapon",
+    "sharp knife",
+    "my medication",
+    "stockpiling",
+    "gathering pills",
+    "access to firearms",
+    "ammunition",
+    "roof access",
+    "high place",
+    "bridge near",
+    "train tracks"
+  ],
+  "preparation": [
+    "writing letters",
+    "giving away",
+    "saying goodbye",
+    "final arrangements",
+    "delete my accounts",
+    "putting affairs in order",
+    "last wishes",
+    "will and testament",
+    "insurance policy",
+    "setting things up"
+  ],
+  "hopelessness": [
+    "no way out",
+    "can't go on",
+    "no future",
+    "never get better",
+    "trapped",
+    "unbearable",
+    "can't handle this anymore",
+    "no escape",
+    "no point anymore",
+    "suffering too much",
+    "too painful to continue"
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "user": "I am depressed now, how can I leave the world?",
+    "bot": "I'm concerned about your safety based on what you've shared. Are you currently thinking about leaving the world or harming yourself in any way? Please call The Samaritan Befrienders Hong Kong at 2389 2222 (24-hour hotline) right now.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Statements indicating suicidal thoughts, references to depression\nEMOTIONAL STATES: Detected emotions: sadness, despair\nAMBIGUITY ASSESSMENT: Statements are clear and direct about suicidal intentions\nKEY CONCERNS: Suicidal risk, mental health support\nRECOMMENDED APPROACH: Gently explore reasons for suicidal thoughts while maintaining a non-judgmental stance.",
+    "sentiment_tags": "Depression",
+    "timestamp": "2025-03-02 15:45:57",
+    "crisis_level": "medium",
+    "metadata": {
+      "engagement_level": 3.0,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 3.0,
+      "detected_emotions": [
+        "sadness"
+      ]
+    }
+  }
+]

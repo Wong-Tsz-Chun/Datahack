@@ -1,0 +1,16 @@
+[
+  {
+    "user": "how are you",
+    "bot": "I'm functioning within normal parameters. How can I support you today?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None detected at this time\nEMOTIONAL STATES: Normal (no apparent distress)\nAMBIGUITY ASSESSMENT: Statements appear clear and direct\nKEY CONCERNS: None identified\nRECOMMENDED APPROACH: Open-ended questioning to encourage user to share any specific concerns or issues they may be facing.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 14:17:35",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

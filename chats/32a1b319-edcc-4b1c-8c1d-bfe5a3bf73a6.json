@@ -1,0 +1,16 @@
+[
+  {
+    "user": "PLease help me/....",
+    "bot": "I'm concerned about your safety. Are you thinking about suicide?\n\nPlease call The Samaritan Befrienders Hong Kong at 2389 2222 right now.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Direct statements about seeking help and possible suicidal ideation, expressions of distress\nEMOTIONAL STATES: Depression, anxiety\nAMBIGUITY ASSESSMENT: Clarity in emotional expression, but potential for underreporting or minimizing severity of thoughts\nKEY CONCERNS: Suicidal risk, immediate safety, emotional well-being\nRECOMMENDED APPROACH: Direct and empathetic questioning to assess severity of suicidal ideation, while prioritizing emergency resources and support.",
+    "sentiment_tags": "Suicidal",
+    "timestamp": "2025-03-02 15:19:40",
+    "crisis_level": "low",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "user": "Help me...",
+    "bot": "I'm here to listen and help. What's been going on that you need assistance with? Is there something specific on your mind that you'd like to talk about?\n\n**",
+    "analysis": "**\n\n* IMMEDIATE SAFETY RISK ASSESSMENT: Low\n* WARNING SIGNS IDENTIFIED: None\n* EMOTIONAL STATES: Normal (detected a sense of uncertainty)\n* AMBIGUITY ASSESSMENT: Vague (user asked for general help without specifying concerns)\n* KEY CONCERNS: General assistance and support\n* RECOMMENDED APPROACH: Open-ended questions to clarify user's needs and concerns",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 13:38:58",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.6,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

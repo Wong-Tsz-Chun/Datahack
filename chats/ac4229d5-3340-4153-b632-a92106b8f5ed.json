@@ -1,0 +1,18 @@
+[
+  {
+    "user": "I feel depressed, what should I do...",
+    "bot": "I'm so sorry to hear that you're feeling depressed. It takes a lot of courage to acknowledge and share this with someone. \n\nFirstly, please know that you're not alone in this. Many people have struggled with depression and come out stronger on the other side.\n\nHave you considered reaching out to a professional for support? A therapist or counselor can help you work through your feelings and develop coping strategies.\n\nIf you're struggling with thoughts of self-harm or suicide, please know that there is help available. You can call The Samaritan Befrienders Hong Kong at 2389 2222 (24-hour hotline) for immediate support.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Medium\nWARNING SIGNS IDENTIFIED: Depression, suicidal thoughts not explicitly stated but a concern given the context\nEMOTIONAL STATES: Depressed\nAMBIGUITY ASSESSMENT: User's statements are clear in expressing depression, but there is an underlying risk that needs attention.\nKEY CONCERNS: Suicidal ideation and need for professional support\nRECOMMENDED APPROACH: Continue assessing for suicidal risk while also encouraging the user to seek professional help.",
+    "sentiment_tags": "Depression",
+    "timestamp": "2025-03-02 15:20:30",
+    "crisis_level": "low",
+    "metadata": {
+      "engagement_level": 2.1,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 4.5,
+      "detected_emotions": [
+        "sadness"
+      ]
+    }
+  }
+]

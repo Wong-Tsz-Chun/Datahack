@@ -1,0 +1,58 @@
+{
+  "user_id": "3c4b2dcf-87d4-4c0b-b790-6230421ba052",
+  "first_session": "2025-03-02 14:20:18",
+  "last_session": "2025-03-02 14:20:38",
+  "session_count": 1,
+  "total_messages": 2,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 14:20:24",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-02 14:20:38",
+      "emotions": {
+        "fear": 1
+      },
+      "message_idx": 2,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [
+    {
+      "emotion": "fear",
+      "count": 1
+    }
+  ],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 14:20:38",
+      "message": "I wanna suicide but I am afraid",
+      "level": "medium",
+      "message_idx": 2
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 0.7,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 2.94,
+    "depth": 0.0,
+    "emotional_disclosure": 6.0
+  }
+}

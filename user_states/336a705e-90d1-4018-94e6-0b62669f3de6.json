@@ -1,0 +1,52 @@
+{
+  "user_id": "336a705e-90d1-4018-94e6-0b62669f3de6",
+  "first_session": "2025-03-02 15:24:18",
+  "last_session": "2025-03-02 15:24:25",
+  "session_count": 1,
+  "total_messages": 1,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 15:24:25",
+      "emotions": {
+        "sadness": 1
+      },
+      "message_idx": 1,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [
+    {
+      "emotion": "sadness",
+      "count": 1
+    }
+  ],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 15:24:25",
+      "message": "I am depressed now, how can I leave the world?",
+      "level": "medium",
+      "message_idx": 1
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 1.0,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 3.0,
+    "depth": 3.0,
+    "emotional_disclosure": 6.0
+  }
+}

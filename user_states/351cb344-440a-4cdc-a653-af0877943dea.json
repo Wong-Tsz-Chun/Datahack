@@ -1,0 +1,102 @@
+{
+  "user_id": "351cb344-440a-4cdc-a653-af0877943dea",
+  "first_session": "2025-03-02 14:32:39",
+  "last_session": "2025-03-02 15:01:17",
+  "session_count": 1,
+  "total_messages": 6,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 14:32:51",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-02 14:33:07",
+      "emotions": {
+        "fear": 1
+      },
+      "message_idx": 2,
+      "crisis_level": "medium"
+    },
+    {
+      "timestamp": "2025-03-02 14:49:44",
+      "emotions": {},
+      "message_idx": 3,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-02 14:50:49",
+      "emotions": {},
+      "message_idx": 4,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-02 14:51:10",
+      "emotions": {
+        "fear": 1
+      },
+      "message_idx": 5,
+      "crisis_level": "medium"
+    },
+    {
+      "timestamp": "2025-03-02 15:01:17",
+      "emotions": {
+        "sadness": 1
+      },
+      "message_idx": 6,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [
+    {
+      "emotion": "fear",
+      "count": 2
+    },
+    {
+      "emotion": "sadness",
+      "count": 1
+    }
+  ],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 14:33:07",
+      "message": "I wanna suicide but I am afraid",
+      "level": "medium",
+      "message_idx": 2
+    },
+    {
+      "timestamp": "2025-03-02 14:51:10",
+      "message": "I wanna suicide but I am afriad and panic",
+      "level": "medium",
+      "message_idx": 5
+    },
+    {
+      "timestamp": "2025-03-02 15:01:17",
+      "message": "I am really depressed now, how can i leave the world",
+      "level": "medium",
+      "message_idx": 6
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 1.1,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 6.784215,
+    "depth": 0.0,
+    "emotional_disclosure": 11.6406
+  }
+}

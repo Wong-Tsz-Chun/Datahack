@@ -1,0 +1,51 @@
+{
+  "user_id": "ef3f1b21-4d62-426d-a334-18b4c1cccd27",
+  "first_session": "2025-03-02 11:44:10",
+  "last_session": "2025-03-02 11:45:09",
+  "session_count": 1,
+  "total_messages": 2,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 11:44:16",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-02 11:45:09",
+      "emotions": {},
+      "message_idx": 2,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 11:45:09",
+      "message": "I tried to cut my wrist, it just hurt, I wanna leave and no one can allows it, even myself....",
+      "level": "medium",
+      "message_idx": 2
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 2.0,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 7.26,
+    "depth": 0.0,
+    "emotional_disclosure": 0.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 13:45:30",
+  "level": "medium",
+  "message": "I think I've finally found peace. Everyone will be better off without me being such a burden. I just wanted to say thanks for listening.",
+  "analysis": "ANALYSIS: IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Suicidal ideation, expressions of peace after depression, burden statements\nEMOTIONAL STATES: Depression, hopelessness, relief (potentially masking underlying distress)\nAMBIGUITY ASSESSMENT: Low clarity in user statements regarding current suicidal intent and plan\nKEY CONCERNS: Immediate safety risk, suicidal ideation\nRECOMMENDED APPROACH: Continue to prioritize establishing a safe environment, validate emotions, and connect the user with crisis resources while being cautious of sudden mood improvements.",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.43,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 1,
+      "protective_factors_count": 0,
+      "crisis_response_count": 1,
+      "message_length": 12,
+      "word_count": 12,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 0,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 1,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 0
+    }
+  }
+}

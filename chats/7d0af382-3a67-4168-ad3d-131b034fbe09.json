@@ -1,0 +1,30 @@
+[
+  {
+    "user": "Help me...",
+    "bot": "I'm here to listen and support you. What's been going on that's got you seeking help right now?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None detected so far\nEMOTIONAL STATES: Seeking help, uncertain\nAMBIGUITY ASSESSMENT: Statements are clear, but context is unclear\nKEY CONCERNS: User's current emotional state, seeking support\nRECOMMENDED APPROACH: Explore user's reasons for seeking help and offer general support.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 13:41:22",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.6,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  },
+  {
+    "user": "Someone said he would kill me... I told the police that he hide drug, he is finding me...",
+    "bot": "I'm very concerned about your safety based on what you've shared. Are you in a safe place right now? Is there somewhere safe you can go?\n\nPlease call emergency services at 999 if you're in immediate danger.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Threats of physical harm, mention of hiding evidence and fear for one's safety\nEMOTIONAL STATES: Fear, anxiety\nAMBIGUITY ASSESSMENT: Statements are clear and indicate a high level of concern for immediate safety\nKEY CONCERNS: User's immediate safety, potential danger from another person\nRECOMMENDED APPROACH: Prioritize user's safety by establishing an emergency plan and connecting them with support resources.",
+    "sentiment_tags": "Suicidal",
+    "timestamp": "2025-03-02 13:41:57",
+    "crisis_level": "medium",
+    "metadata": {
+      "engagement_level": 5.819999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

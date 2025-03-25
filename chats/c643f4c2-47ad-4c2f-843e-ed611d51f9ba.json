@@ -1,0 +1,18 @@
+[
+  {
+    "user": "I've been really depressed but suddenly everything is so clear now. I'm giving away my things because I don't need them anymore. This will be my last message. Thank you for everything.",
+    "bot": "I'm concerned about your safety based on what you've shared. Are you thinking about suicide?\n\nPlease call The Samaritan Befrienders Hong Kong at 2389 2222 right now.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Direct statement of giving away things due to clarity, mention of it being the last message, which indicates a high risk of suicidal behavior.\nEMOTIONAL STATES: Depression\nAMBIGUITY ASSESSMENT: Low - Your language is clear and direct, indicating a specific state of mind.\nKEY CONCERNS: Suicidal ideation, potential for immediate action\nRECOMMENDED APPROACH: Continue to focus on immediate safety needs, encourage the user to call the crisis hotline, and assess further in subsequent conversations.",
+    "sentiment_tags": "Depression",
+    "timestamp": "2025-03-02 13:46:45",
+    "crisis_level": "medium",
+    "metadata": {
+      "engagement_level": 9.6,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": [
+        "sadness"
+      ]
+    }
+  }
+]

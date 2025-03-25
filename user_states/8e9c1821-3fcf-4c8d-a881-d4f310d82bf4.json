@@ -1,0 +1,57 @@
+{
+  "user_id": "8e9c1821-3fcf-4c8d-a881-d4f310d82bf4",
+  "first_session": "2025-03-02 11:38:09",
+  "last_session": "2025-03-02 11:40:06",
+  "session_count": 1,
+  "total_messages": 3,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 11:38:22",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-02 11:39:36",
+      "emotions": {},
+      "message_idx": 2,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-02 11:40:06",
+      "emotions": {},
+      "message_idx": 3,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 11:40:06",
+      "message": "I cannot get them anymore they are too expensive so I ask you",
+      "level": "medium",
+      "message_idx": 3
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 1.8,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 8.205,
+    "depth": 0.0,
+    "emotional_disclosure": 0.0
+  }
+}

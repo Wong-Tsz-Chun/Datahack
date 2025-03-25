@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+
+{% block services_active %}active{% endblock %}
+
+{% block head %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+{% endblock %}
+
+{% block content %}
+<div class="services-container">
+    <h1>Mental Health Services Near You</h1>
+
+    <div class="search-container">
+        <input type="text" id="location-input" placeholder="Enter your location">
+        <button id="search-btn">Find Services</button>
+    </div>
+
+    <div class="services-grid">
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        <div class="services-list" id="services-list">
+            <div class="empty-state">
+                <p>Enter your location to find mental health services near you.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="emergency-services">
+        <h2>Emergency Resources</h2>
+        <div class="emergency-grid">
+            <div class="emergency-card">
+                <h3>National Suicide Prevention Lifeline</h3>
+                <p>24/7, free and confidential support</p>
+                <a href="tel:988" class="emergency-btn">Call 988</a>
+            </div>
+            <div class="emergency-card">
+                <h3>Crisis Text Line</h3>
+                <p>Text HOME to 741741 to connect with a Crisis Counselor</p>
+                <a href="sms:741741?body=HOME" class="emergency-btn">Text HOME to 741741</a>
+            </div>
+            <div class="emergency-card">
+                <h3>Emergency Services</h3>
+                <p>For immediate emergency assistance</p>
+                <a href="tel:911" class="emergency-btn">Call 911</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Store map and markers globally
+let map;
+let markers = [];
+let placesService;
+let infoWindow;
+
+// Initialize Google Maps
+function initMap() {
+    // Default center (will be updated based on user input)
+    const defaultLocation = { lat: 37.7749, lng: -122.4194 }; // San Francisco
+
+    // Create the map
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: defaultLocation,
+        zoom: 13,
+        styles: [
+            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            {
+                featureType: "administrative.locality",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#d59563" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#d59563" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "geometry",
+                stylers: [{ color: "#263c3f" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#6b9a76" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [{ color: "#38414e" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#212a37" }],
+            },
+            {
+                featureType: "road",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#9ca5b3" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry",
+                stylers: [{ color: "#746855" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#1f2835" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#f3d19c" }],
+            },
+            {
+                featureType: "transit",
+                elementType: "geometry",
+                stylers: [{ color: "#2f3948" }],
+            },
+            {
+                featureType: "transit.station",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#d59563" }],
+            },
+            {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [{ color: "#17263c" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#515c6d" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.stroke",
+                stylers: [{ color: "#17263c" }],
+            },
+        ],
+    });
+
+    // Create places service
+    placesService = new google.maps.places.PlacesService(map);
+
+    // Create info window for markers
+    infoWindow = new google.maps.InfoWindow();
+
+    // Add event listener to search button
+    document.getElementById('search-btn').addEventListener('click', searchServices);
+
+    // Allow pressing Enter in the input field
+    document.getElementById('location-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchServices();
+        }
+    });
+}
+
+// Search for mental health services near location
+function searchServices() {
+    const locationInput = document.getElementById('location-input').value;
+
+    if (!locationInput) {
+        alert('Please enter a location');
+        return;
+    }
+
+    // Show loading state
+    const servicesList = document.getElementById('services-list');
+    servicesList.innerHTML = '<div class="loading"><p>Searching for services...</p></div>';
+
+    // Geocode the location
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: locationInput }, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK && results[0]) {
+            const location = results[0].geometry.location;
+
+            // Center map on the location
+            map.setCenter(location);
+
+            // Clear previous markers
+            clearMarkers();
+
+            // Search for mental health services
+            const request = {
+                location: location,
+                radius: '5000', // 5km radius
+                type: ['health'],
+                keyword: 'mental health therapist counseling psychology psychiatry'
+            };
+
+            placesService.nearbySearch(request, handleSearchResults);
+        } else {
+            servicesList.innerHTML = '<div class="empty-state"><p>Location not found. Please try again.</p></div>';
+        }
+    });
+}
+
+// Handle search results
+function handleSearchResults(results, status) {
+    const servicesList = document.getElementById('services-list');
+
+    if (status === google.maps.places.PlacesServiceStatus.OK && results.length > 0) {
+        servicesList.innerHTML = '';
+
+        results.forEach((place, index) => {
+            // Only process places that are likely mental health related
+            if (isLikelyMentalHealthService(place)) {
+                // Create marker
+                const marker = new google.maps.Marker({
+                    position: place.geometry.location,
+                    map: map,
+                    title: place.name,
+                    animation: google.maps.Animation.DROP
+                });
+
+                markers.push(marker);
+
+                // Add info window to marker
+                marker.addListener('click', function() {
+                    showInfoWindow(place, marker);
+                });
+
+                // Create service item in list
+                const serviceItem = createServiceItem(place, index);
+                servicesList.appendChild(serviceItem);
+            }
+        });
+
+        // If no mental health services were found after filtering
+        if (servicesList.innerHTML === '') {
+            servicesList.innerHTML = '<div class="empty-state"><p>No mental health services found nearby. Try expanding your search area.</p></div>';
+        }
+    } else {
+        servicesList.innerHTML = '<div class="empty-state"><p>No results found. Try a different location or search terms.</p></div>';
+    }
+}
+
+// Check if a place is likely a mental health service
+function isLikelyMentalHealthService(place) {
+    const keywords = ['therapist', 'therapy', 'counseling', 'counselor', 'mental health',
+                      'psychologist', 'psychiatrist', 'psychology', 'psychiatry', 'wellness'];
+
+    // Check if name or types contain mental health keywords
+    const nameMatch = keywords.some(keyword =>
+        place.name.toLowerCase().includes(keyword.toLowerCase()));
+
+    const typesMatch = place.types && place.types.some(type =>
+        type.includes('health') || type.includes('doctor'));
+
+    return nameMatch || typesMatch;
+}
+
+// Create service item for the list
+function createServiceItem(place, index) {
+    const serviceItem = document.createElement('div');
+    serviceItem.className = 'service-item';
+    serviceItem.id = `service-${index}`;
+
+    // Get place details for more information
+    placesService.getDetails({ placeId: place.place_id }, function(placeDetails, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            // Create HTML content
+            let contentHTML = `
+                <h3>${place.name}</h3>
+                <div class="rating">
+                    ${getRatingStars(place.rating || 0)}
+                    <span>(${place.user_ratings_total || 0} reviews)</span>
+                </div>
+            `;
+
+            if (placeDetails.formatted_address) {
+                contentHTML += `<p><i class="fas fa-map-marker-alt"></i> ${placeDetails.formatted_address}</p>`;
+            }
+
+            if (placeDetails.formatted_phone_number) {
+                contentHTML += `<p><i class="fas fa-phone"></i> ${placeDetails.formatted_phone_number}</p>`;
+            }
+
+            contentHTML += `
+                <a href="#" class="directions-btn" onclick="openDirections('${placeDetails.place_id}')">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            `;
+
+            serviceItem.innerHTML = contentHTML;
+
+            // Add click event to highlight on map
+            serviceItem.addEventListener('click', function() {
+                // Center map on this location
+                map.setCenter(place.geometry.location);
+                map.setZoom(15);
+
+                // Show info window
+                showInfoWindow(placeDetails, markers[index]);
+
+                // Highlight in list
+                const items = document.querySelectorAll('.service-item');
+                items.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        }
+    });
+
+    return serviceItem;
+}
+
+// Generate star rating HTML
+function getRatingStars(rating) {
+    let stars = '';
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+
+    for (let i = 0; i < 5; i++) {
+        if (i < fullStars) {
+            stars += '<i class="fas fa-star"></i>';
+        } else if (i === fullStars && halfStar) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+        } else {
+            stars += '<i class="far fa-star"></i>';
+        }
+    }
+
+    return stars;
+}
+
+// Show info window for a place
+function showInfoWindow(place, marker) {
+    let content = `
+        <div class="info-window">
+            <h3>${place.name}</h3>
+    `;
+
+    if (place.formatted_address) {
+        content += `<p>${place.formatted_address}</p>`;
+    }
+
+    if (place.formatted_phone_number) {
+        content += `<p>${place.formatted_phone_number}</p>`;
+    }
+
+    if (place.website) {
+        content += `<a href="${place.website}" target="_blank">Visit Website</a>`;
+    }
+
+    content += '</div>';
+
+    infoWindow.setContent(content);
+    infoWindow.open(map, marker);
+}
+
+// Open Google Maps directions
+function openDirections(placeId) {
+    window.open(`https://www.google.com/maps/dir/?api=1&destination=&destination_place_id=${placeId}`);
+    return false;
+}
+
+// Clear all markers from the map
+function clearMarkers() {
+    markers.forEach(marker => marker.setMap(null));
+    markers = [];
+}
+
+// Initialize map when the page loads
+window.initMap = initMap;
+</script>
+
+<!-- Google Maps API script with your API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+{% endblock %}

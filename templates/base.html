@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepTalker - Mental Health Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <i class="fas fa-brain"></i>
+                <span>DeepTalker</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item"><a class="nav-link {% block new_chat_active %}{% endblock %}" href="/new_chat">New Chat</a>
+            <li><a href="/" class="{% block home_active %}{% endblock %}">Home</a></li>
+            <li><a href="/stats" class="{% block stats_active %}{% endblock %}">Statistics</a></li>
+            <li><a href="/services" class="{% block services_active %}{% endblock %}">Services</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 DeepTalker. All rights reserved.</p>
+        <p>In case of emergency, please call your local emergency services.</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

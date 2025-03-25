@@ -1,0 +1,46 @@
+{
+  "immediate_intent": [
+    "going to kill myself",
+    "about to end it",
+    "this is goodbye",
+    "killing myself tonight",
+    "ending it all today",
+    "final message",
+    "pulling the trigger",
+    "jumping off",
+    "hanging myself today",
+    "taking all my pills now",
+    "slitting my wrists",
+    "this is the end",
+    "no longer alive after",
+    "suicide note",
+    "no one will find me"
+  ],
+  "specific_plan": [
+    "bought a gun",
+    "have the pills ready",
+    "tied the noose",
+    "standing on the bridge",
+    "sharp blade",
+    "collected enough pills",
+    "found the tallest building",
+    "ready to jump",
+    "loaded gun",
+    "poison ready",
+    "written my note",
+    "making preparations"
+  ],
+  "imminent_timeline": [
+    "tonight",
+    "in the morning",
+    "few hours",
+    "when everyone's asleep",
+    "after this call",
+    "right after",
+    "as soon as",
+    "once I hang up",
+    "before dawn",
+    "before anyone notices",
+    "in a few minutes"
+  ]
+}

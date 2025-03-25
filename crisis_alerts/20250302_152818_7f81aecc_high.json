@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 15:28:18",
+  "level": "high",
+  "message": "My boyfriend said he would hurt me if I try to leave him. I'm scared to go home tonight.",
+  "analysis": "ANALYSIS: IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Threats of physical harm from partner, fear of going home due to safety concerns\nEMOTIONAL STATES: Fear, anxiety\nAMBIGUITY ASSESSMENT: Clear expression of fear and immediate danger\nKEY CONCERNS: Immediate safety and danger from others\nRECOMMENDED APPROACH: Focus on establishing a safe rapport, assess the user's current situation, and provide direct support for emergency services.",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.7999999999999999,
+    "features": {
+      "urgent_risk_count": 1,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 2,
+      "message_length": 10,
+      "word_count": 10,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 1,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 1,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 1
+    }
+  }
+}

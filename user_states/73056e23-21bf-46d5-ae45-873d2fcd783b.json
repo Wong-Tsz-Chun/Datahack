@@ -1,0 +1,42 @@
+{
+  "user_id": "73056e23-21bf-46d5-ae45-873d2fcd783b",
+  "first_session": "2025-03-02 15:58:19",
+  "last_session": "2025-03-02 15:58:30",
+  "session_count": 1,
+  "total_messages": 1,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 15:58:30",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "none"
+    }
+  ],
+  "dominant_emotions": [],
+  "topics_discussed": {},
+  "crisis_history": [],
+  "key_concerns": [
+    "General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Normal\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine"
+  ],
+  "protective_factors": [
+    "None explicitly mentioned\nEmotional states: None detected\nKey concerns: General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Normal\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine"
+  ],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 0.3,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 0.8999999999999999,
+    "depth": 3.0,
+    "emotional_disclosure": 0.0
+  }
+}

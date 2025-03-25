@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 11:45:09",
+  "level": "medium",
+  "message": "I tried to cut my wrist, it just hurt, I wanna leave and no one can allows it, even myself....",
+  "analysis": "Crisis detected from sentiment tags: Suicidal",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.45,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 1,
+      "message_length": 10,
+      "word_count": 10,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 1,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 0,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 0
+    }
+  }
+}

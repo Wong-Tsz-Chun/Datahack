@@ -1,0 +1,53 @@
+{
+  "user_id": "04619b6f-65a1-4a94-8d20-7dbc1f318ee1",
+  "first_session": "2025-03-02 13:48:09",
+  "last_session": "2025-03-02 13:48:38",
+  "session_count": 1,
+  "total_messages": 2,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 13:48:17",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "low"
+    },
+    {
+      "timestamp": "2025-03-02 13:48:38",
+      "emotions": {},
+      "message_idx": 2,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [],
+  "topics_discussed": {
+    "family": 1
+  },
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 13:48:38",
+      "message": "I can't take it anymore. I just want to end everything. I have the pills ready.",
+      "level": "medium",
+      "message_idx": 2
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 3.5,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 10.889999999999999,
+    "depth": 0.0,
+    "emotional_disclosure": 0.0
+  }
+}

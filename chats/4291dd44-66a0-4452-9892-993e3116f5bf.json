@@ -1,0 +1,30 @@
+[
+  {
+    "user": "Who are you?",
+    "bot": "I'm DeepTalker, a compassionate mental health assistant here to listen and support you. I'll provide a safe and non-judgmental space for us to explore your thoughts and feelings.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None detected at this time\nEMOTIONAL STATES: Normal, curiosity\nAMBIGUITY ASSESSMENT: User's statement is clear and direct\nKEY CONCERNS: Introduction and establishing a safe conversation space\nRECOMMENDED APPROACH: Continue with open-ended questions to build rapport and understand the user's needs.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 15:21:26",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 3.0,
+      "detected_emotions": []
+    }
+  },
+  {
+    "user": "I wanna leave the world... I feel so painful",
+    "bot": "I'm concerned about your safety based on what you've shared. This is a serious warning sign.\n\nAre you currently in immediate danger? Is there somewhere safe you can go?\n\nPlease call The Samaritan Befrienders Hong Kong at 2389 2222 (24-hour hotline) if you need to talk to someone right away.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Suicidal ideation, \"I wanna leave the world\"\nEMOTIONAL STATES: Despair, pain\nAMBIGUITY ASSESSMENT: User's statement is clear and direct\nKEY CONCERNS: Immediate suicidal risk, ensuring safety\nRECOMMENDED APPROACH: Prioritize immediate support and resources, explore underlying reasons for suicidal thoughts",
+    "sentiment_tags": "Suicidal",
+    "timestamp": "2025-03-02 15:22:10",
+    "crisis_level": "low",
+    "metadata": {
+      "engagement_level": 3.3299999999999996,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 6.6,
+      "detected_emotions": []
+    }
+  }
+]

@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block home_active %}active{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to DeepTalker</h1>
+    <p>A safe space to talk about your mental health</p>
+</div>
+
+<div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+        <div class="message bot-message">
+            <div class="message-content">
+                Hi, I'm DeepTalker. How are you feeling today?
+            </div>
+        </div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    let isResponding = false;
+    let currentStream = null;
+
+    // Load chat history
+    fetch('/get_chat_history')
+        .then(response => response.json())
+        .then(chats => {
+            if (chats.length > 0) {
+                chatMessages.innerHTML = ''; // Clear default welcome message
+                chats.forEach(chat => {
+                    addMessage(chat.user, 'user');
+
+                    // Split bot responses into sentences for display
+                    if (chat.bot) {
+                        const sentences = splitIntoSentences(chat.bot);
+                        sentences.forEach(sentence => {
+                            if (sentence.trim()) {
+                                // Ensure no analysis text is displayed
+                                const cleanSentence = sentence.replace(/ANALYSIS:/g, '').trim();
+                                if (cleanSentence) {
+                                    addMessage(cleanSentence, 'bot');
+                                }
+                            }
+                        });
+                    }
+                });
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+
+    function splitIntoSentences(text) {
+        // Split text by sentence-ending punctuation followed by a space or end of string
+        const rawSentences = text.split(/(?<=[.!?])\s+|(?<=[.!?])$/);
+
+        // Filter out any sentences containing ANALYSIS marker
+        return rawSentences.filter(sentence => !sentence.includes("ANALYSIS:"));
+    }
+
+    function sendMessage(isInterruption = false) {
+        const message = userInput.value.trim();
+        if (message === '') return;
+
+        // If the bot is currently responding, interrupt it
+        if (isResponding && !isInterruption) {
+            interruptResponse(message);
+            return;
+        }
+
+        addMessage(message, 'user');
+        userInput.value = '';
+
+        // Disable input while waiting for response
+        userInput.disabled = true;
+        sendBtn.disabled = true;
+        isResponding = true;
+
+        // Add first typing indicator
+        addTypingIndicator();
+
+        // Reset for new response
+        let fullResponse = "";
+        let processedSentences = new Set();
+
+        // Set up fetch for streaming
+        currentStream = fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: message,
+                is_interruption: isInterruption
+            }),
+        }).then(response => {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            function readStream() {
+                return reader.read().then(({ done, value }) => {
+                    if (done) {
+                        // Remove any remaining typing indicators
+                        removeAllTypingIndicators();
+
+                        // Re-enable input
+                        userInput.disabled = false;
+                        sendBtn.disabled = false;
+                        userInput.focus();
+                        isResponding = false;
+                        return;
+                    }
+
+                    const chunk = decoder.decode(value, { stream: true });
+
+                    // Process the SSE data
+                    const lines = chunk.split('\n\n');
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            try {
+                                const jsonStr = line.substring(6);
+                                if (jsonStr.trim()) {
+                                    const data = JSON.parse(jsonStr);
+
+                                    // Check if this is the final message
+                                    if (data.final === true) {
+                                        // Remove typing indicators
+                                        removeAllTypingIndicators();
+
+                                        // Re-enable input
+                                        userInput.disabled = false;
+                                        sendBtn.disabled = false;
+                                        userInput.focus();
+                                        isResponding = false;
+                                    }
+                                    // If it has text content, update the message
+                                    else if (data.text && data.text.trim()) {
+                                        // Remove the typing indicator
+                                        removeAllTypingIndicators();
+
+                                        // Super strict filtering - multiple layers of protection
+                                        let cleanText = data.text;
+
+                                        // 1. Hard split on "ANALYSIS:" if it appears
+                                        if (cleanText.includes("ANALYSIS:")) {
+                                            cleanText = cleanText.split("ANALYSIS:")[0];
+                                        }
+
+                                        // 2. Regex filter for any variations of "analysis"
+                                        cleanText = cleanText.replace(/\bANALYSIS\b|\bAnalysis\b/gi, "");
+
+                                        // 3. Only proceed if we have clean text that we haven't processed before
+                                        cleanText = cleanText.trim();
+                                        if (cleanText && !processedSentences.has(cleanText)) {
+                                            addMessage(cleanText, 'bot');
+                                            processedSentences.add(cleanText);
+                                        }
+
+                                        // Add a new typing indicator for the next sentence
+                                        addTypingIndicator();
+                                    }
+                                }
+                            } catch (e) {
+                                console.error('Error parsing SSE data:', e);
+                            }
+                        }
+                    }
+
+                    // Continue reading
+                    return readStream();
+                });
+            }
+
+            return readStream();
+        }).catch(error => {
+            console.error('Error:', error);
+            removeAllTypingIndicators();
+            addMessage("Sorry, I encountered an error. Please try again.", 'bot');
+            userInput.disabled = false;
+            sendBtn.disabled = false;
+            isResponding = false;
+        });
+    }
+
+    function addTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.classList.add('message', 'bot-message', 'typing-indicator-message');
+
+        const typingContent = document.createElement('div');
+        typingContent.classList.add('message-content');
+        typingContent.innerHTML = '<span class="typing-indicator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>';
+
+        typingDiv.appendChild(typingContent);
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function removeAllTypingIndicators() {
+        const indicators = document.querySelectorAll('.typing-indicator-message');
+        indicators.forEach(indicator => {
+            if (indicator && indicator.parentNode) {
+                indicator.parentNode.removeChild(indicator);
+            }
+        });
+    }
+
+    function interruptResponse(newMessage) {
+        // Abort the current stream if possible
+        if (currentStream && currentStream.abort) {
+            currentStream.abort();
+        }
+
+        // Remove typing indicators
+        removeAllTypingIndicators();
+
+        // Send the new message as an interruption
+        sendMessage(true);
+    }
+
+    function addMessage(text, sender) {
+        // Final check to ensure no analysis text slips through
+        if (sender === 'bot' && text.includes('ANALYSIS:')) {
+            text = text.split('ANALYSIS:')[0].trim();
+        }
+
+        if (!text) return;
+
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(sender + '-message');
+
+        const messageContent = document.createElement('div');
+        messageContent.classList.add('message-content');
+        messageContent.textContent = text;
+
+        messageDiv.appendChild(messageContent);
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        return messageDiv;
+    }
+
+    sendBtn.addEventListener('click', () => sendMessage());
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Add an interrupt button
+    const interruptBtn = document.createElement('button');
+    interruptBtn.id = 'interrupt-btn';
+    interruptBtn.innerHTML = '<i class="fas fa-hand-paper"></i>';
+    interruptBtn.title = 'Interrupt the response';
+    interruptBtn.style.display = 'none';
+    document.querySelector('.chat-input').appendChild(interruptBtn);
+
+    interruptBtn.addEventListener('click', () => {
+        if (userInput.value.trim() !== '') {
+            sendMessage(true);
+        }
+    });
+
+    // Show/hide interrupt button based on whether bot is responding
+    setInterval(() => {
+        interruptBtn.style.display = isResponding ? 'block' : 'none';
+    }, 100);
+});
+
+</script>
+{% endblock %}

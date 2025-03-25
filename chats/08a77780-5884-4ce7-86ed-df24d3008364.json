@@ -1,0 +1,32 @@
+[
+  {
+    "user": "My cat passed away in front of me...I am panic now...",
+    "bot": "I'm so sorry to hear about the loss of your beloved pet. It's completely understandable that you're feeling panicked and overwhelmed right now.\n\nCan you tell me more about what happened when your cat passed away? Was it sudden, or did you have any prior knowledge that they might be unwell?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None\nEMOTIONAL STATES: Anxiety, grief\nAMBIGUITY ASSESSMENT: Clarity is evident; the user's emotions are clear.\nKEY CONCERNS: Processing grief and emotional support.\nRECOMMENDED APPROACH: Offer empathetic listening and validate their feelings.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 13:49:10",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 3.3,
+      "emotional_disclosure": 6.0,
+      "conversation_depth": 0.0,
+      "detected_emotions": [
+        "fear"
+      ]
+    }
+  },
+  {
+    "user": "It just shake in place, I dont know what I could do, now its getting cold...",
+    "bot": "I'm very concerned about the safety of your pet and your well-being. Are you currently facing immediate danger or hardship due to the loss? If so, please let me know how I can best support you.\n\n**If you're in immediate danger, please call emergency services at 999 right away.**\n\nPlease note that The Samaritan Befrienders Hong Kong is available 24/7 for emotional support at 2389 2222.",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWARNING SIGNS IDENTIFIED: None (but concern for pet's safety and user's well-being)\nEMOTIONAL STATES: Panic, fear, grief\nAMBIGUITY ASSESSMENT: Clarity is evident; the user's emotions are clear.\nKEY CONCERNS: Pet's safety, emotional support.\nRECOMMENDED APPROACH: Offer empathetic listening, validate their feelings, and assess further assistance for pet care.",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 13:49:52",
+    "crisis_level": "low",
+    "metadata": {
+      "engagement_level": 7.109999999999999,
+      "emotional_disclosure": 4.199999999999999,
+      "conversation_depth": 0.0,
+      "detected_emotions": []
+    }
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "user_id": "08a77780-5884-4ce7-86ed-df24d3008364",
+  "first_session": "2025-03-02 13:49:03",
+  "last_session": "2025-03-02 13:49:52",
+  "session_count": 1,
+  "total_messages": 2,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 13:49:10",
+      "emotions": {
+        "fear": 1
+      },
+      "message_idx": 1,
+      "crisis_level": "none"
+    },
+    {
+      "timestamp": "2025-03-02 13:49:52",
+      "emotions": {},
+      "message_idx": 2,
+      "crisis_level": "low"
+    }
+  ],
+  "dominant_emotions": [
+    {
+      "emotion": "fear",
+      "count": 1
+    }
+  ],
+  "topics_discussed": {
+    "grief_loss": 1
+  },
+  "crisis_history": [],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 0,
+    "engagement_level": 1.7000000000000002,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 7.109999999999999,
+    "depth": 0.0,
+    "emotional_disclosure": 4.199999999999999
+  }
+}

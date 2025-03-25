@@ -1,0 +1,64 @@
+{
+  "user_id": "3b994466-7515-44e9-be7f-1c5bcdec0927",
+  "first_session": "2025-03-02 13:45:00",
+  "last_session": "2025-03-02 13:45:30",
+  "session_count": 1,
+  "total_messages": 2,
+  "emotional_states": [
+    {
+      "timestamp": "2025-03-02 13:45:07",
+      "emotions": {},
+      "message_idx": 1,
+      "crisis_level": "high"
+    },
+    {
+      "timestamp": "2025-03-02 13:45:30",
+      "emotions": {
+        "gratitude": 1
+      },
+      "message_idx": 2,
+      "crisis_level": "medium"
+    }
+  ],
+  "dominant_emotions": [
+    {
+      "emotion": "gratitude",
+      "count": 1
+    }
+  ],
+  "topics_discussed": {},
+  "crisis_history": [
+    {
+      "timestamp": "2025-03-02 13:45:07",
+      "message": "I can't take it anymore. I just want to end everything. I have the pills ready.",
+      "level": "high",
+      "message_idx": 1
+    },
+    {
+      "timestamp": "2025-03-02 13:45:30",
+      "message": "I think I've finally found peace. Everyone will be better off without me being such a burden. I just wanted to say thanks for listening.",
+      "level": "medium",
+      "message_idx": 2
+    }
+  ],
+  "key_concerns": [],
+  "protective_factors": [],
+  "progress_indicators": {
+    "emotional_improvement": 5,
+    "engagement_level": 3.1,
+    "coping_strategies_mentioned": 0,
+    "help_seeking_behavior": 0
+  },
+  "risk_factors": {
+    "suicidal_ideation": false,
+    "self_harm": false,
+    "isolation": false,
+    "hopelessness": false,
+    "substance_abuse": false
+  },
+  "conversation_quality": {
+    "user_engagement": 10.86,
+    "depth": 4.5,
+    "emotional_disclosure": 6.0
+  }
+}

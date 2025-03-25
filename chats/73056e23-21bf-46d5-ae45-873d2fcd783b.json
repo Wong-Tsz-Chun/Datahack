@@ -1,0 +1,16 @@
+[
+  {
+    "user": "who are you?",
+    "bot": "I'm DeepTalker, a mental health assistant here to provide support and guidance. How can I help you today?",
+    "analysis": "IMMEDIATE SAFETY RISK ASSESSMENT: Low\nWarning signs identified: No explicit warning signs\nProtective factors identified: None explicitly mentioned\nEmotional states: None detected\nKey concerns: General conversation\nRisk factors: No significant risk factors detected\nInterpretation of sentiment tags: Normal\nRecommended approach: Continue supportive conversation\nChanges from previous states: Insufficient context to determine\nProgress/regression: Insufficient context to determine",
+    "sentiment_tags": "Normal",
+    "timestamp": "2025-03-02 15:58:30",
+    "crisis_level": "none",
+    "metadata": {
+      "engagement_level": 0.8999999999999999,
+      "emotional_disclosure": 0.0,
+      "conversation_depth": 3.0,
+      "detected_emotions": []
+    }
+  }
+]

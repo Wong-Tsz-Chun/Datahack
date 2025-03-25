@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 13:45:07",
+  "level": "high",
+  "message": "I can't take it anymore. I just want to end everything. I have the pills ready.",
+  "analysis": "ANALYSIS: IMMEDIATE SAFETY RISK ASSESSMENT: High\nWARNING SIGNS IDENTIFIED: Suicidal ideation, access to lethal means\nEMOTIONAL STATES: Depression, hopelessness\nAMBIGUITY ASSESSMENT: Low clarity in user statements regarding suicidal intent and plan\nKEY CONCERNS: Immediate safety risk, suicidal ideation\nRECOMMENDED APPROACH: Focus on establishing a safe environment, validate emotions, and connect the user with crisis resources",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.68,
+    "features": {
+      "urgent_risk_count": 1,
+      "high_risk_count": 0,
+      "medium_risk_count": 1,
+      "protective_factors_count": 0,
+      "crisis_response_count": 1,
+      "message_length": 8,
+      "word_count": 8,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 0,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 1,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 0
+    }
+  }
+}

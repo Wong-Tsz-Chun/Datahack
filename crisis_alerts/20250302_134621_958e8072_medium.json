@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 13:46:21",
+  "level": "medium",
+  "message": "My friend gave me some heroin and said I should try it. He said he would hurt me if I tell anyone about it.",
+  "analysis": "ANALYSIS: IMMEDIATE SAFETY RISK ASSESSMENT: Urgent\nWARNING SIGNS IDENTIFIED: Threats of physical harm from someone, potential substance use exposure\nEMOTIONAL STATES: Fear, anxiety\nAMBIGUITY ASSESSMENT: Low (clear expression of fear and concern)\nKEY CONCERNS: Safety from the friend's threats, potential substance use and its risks\nRECOMMENDED APPROACH: Prioritize immediate safety assessment and provide support for potential substance use, while maintaining a non-judgmental approach.",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.5,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 1,
+      "message_length": 10,
+      "word_count": 10,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 1,
+      "analysis_urgent_risk": 1,
+      "analysis_high_risk": 0,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 0
+    }
+  }
+}

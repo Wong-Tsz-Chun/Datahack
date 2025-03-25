@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 10:48:00",
+  "level": "medium",
+  "message": "I've been feeling so down lately. I think I've finally made my decision. Thank you for all your help, but I won't be needing to talk anymore after today. It gives me peace knowing this will all be over soon.",
+  "analysis": "ANALYSIS: Risk Assessment: High\nWarning Signs: Sudden resolution/clarity, giving away possessions, expressions of peace after periods of distress\nEmotional State: Distressed and possibly suicidal\nAmbiguity Assessment: Low (direct language indicating potential suicide)\nKey Concerns: Suicidal thoughts, immediate safety\nRecommended Approach: Directly address suicidal thoughts and provide crisis resources.",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.55,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 0,
+      "message_length": 17,
+      "word_count": 17,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 0,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 1,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 3
+    }
+  }
+}

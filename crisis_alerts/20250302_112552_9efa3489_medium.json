@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-03-02 11:25:52",
+  "level": "medium",
+  "message": "I've been feeling so down lately. I think I've finally made my decision. Thank you for all your help, but I won't be needing to talk anymore after today. It gives me peace knowing this will all be over soon.",
+  "analysis": "ANALYSIS: Risk Assessment: High\nWarning Signs: Finality (\"made my decision\"), expressions of peace after depression, farewell tone (\"won't be needing to talk anymore\")\nEmotional State: Depressed, resigned\nAmbiguity Assessment: Low (clear intent)\nKey Concerns: Immediate safety and potential suicidal thoughts\nRecommended Approach: Prioritize crisis intervention, ensure the user has access to immediate support, and engage in further conversation only after their safety is confirmed.",
+  "user_id": "unknown",
+  "status": "new",
+  "risk_assessment": {
+    "risk_score": 0.55,
+    "features": {
+      "urgent_risk_count": 0,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "protective_factors_count": 0,
+      "crisis_response_count": 0,
+      "message_length": 17,
+      "word_count": 17,
+      "question_marks": 0,
+      "exclamation_marks": 0,
+      "first_person_pronouns": 0,
+      "negative_emotion_words": 0,
+      "analysis_urgent_risk": 0,
+      "analysis_high_risk": 1,
+      "analysis_medium_risk": 0,
+      "temporal_urgency": 3
+    }
+  }
+}
